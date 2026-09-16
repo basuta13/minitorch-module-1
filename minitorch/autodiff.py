@@ -23,7 +23,11 @@ def central_difference(f: Any, *vals: Any, arg: int = 0, epsilon: float = 1e-6) 
         An approximation of $f'_i(x_0, \ldots, x_{n-1})$
     """
     # TODO: Implement for Task 1.1.
-    raise NotImplementedError("Need to implement for Task 1.1")
+    vals1 = [v for v in vals]
+    vals2 = [v for v in vals]
+    vals1[arg] = vals1[arg] + epsilon
+    vals2[arg] = vals2[arg] - epsilon
+    return (f(*vals1) - f(*vals2)) / (2.0 * epsilon)
 
 
 variable_count = 1
